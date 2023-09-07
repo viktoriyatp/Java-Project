@@ -1,4 +1,4 @@
-package java.com.viktoriyatp.robot;
+package com.viktoriyatp.robot;
 
 public class Robot {
   private int id;

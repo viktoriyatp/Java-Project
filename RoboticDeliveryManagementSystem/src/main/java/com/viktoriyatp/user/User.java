@@ -1,4 +1,4 @@
-package java.com.viktoriyatp.user;
+package com.viktoriyatp.user;
 
 public class User {
   private int id;

@@ -1,4 +1,4 @@
-package java.com.viktoriyatp.role;
+package com.viktoriyatp.role;
 
 public class Role {
   private int id;

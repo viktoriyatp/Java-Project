@@ -1,9 +1,9 @@
-package com.viktoriyatp.client;
+package com.viktoriyatp.product;
 
 import org.springframework.data.repository.ListCrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ClientRepository extends ListCrudRepository<Client, Integer> {
+public interface ProductRepository extends ListCrudRepository<Product, Integer> {
 
 }
