@@ -1,4 +1,4 @@
-package com.viktoriyatp.order_details;
+package java.com.viktoriyatp.order_details;
 
 import java.math.BigDecimal;
 

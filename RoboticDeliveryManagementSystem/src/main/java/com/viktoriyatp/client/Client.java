@@ -1,4 +1,4 @@
-package com.viktoriyatp.client;
+package java.com.viktoriyatp.client;
 
 public class Client {
   private int id;

@@ -1,4 +1,4 @@
-package com.viktoriyatp.order;
+package java.com.viktoriyatp.order;
 
 import java.time.LocalDateTime;
 
