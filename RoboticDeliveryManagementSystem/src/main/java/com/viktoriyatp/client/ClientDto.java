@@ -1,32 +1,16 @@
 package com.viktoriyatp.client;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
-@Entity
-@Table(name = "clients")
-public class Client {
-  @Id
-  @Column(name = "id")
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ClientDto {
   private int id;
-  @Column(name = "name")
   private String name;
-  @Column(name = "email")
   private String email;
-  @Column(name = "phone")
   private String phone;
-  @Column(name = "address")
   private String address;
 
-  public Client() {
+  public ClientDto() {
   }
 
-  public Client(int id, String name, String email, String phone, String address) {
+  public ClientDto(int id, String name, String email, String phone, String address) {
     this.id = id;
     this.name = name;
     this.email = email;

@@ -1,33 +1,66 @@
 package com.viktoriyatp.order;
 
+import com.viktoriyatp.client.Client;
+import com.viktoriyatp.order_details.OrderDetails;
+import com.viktoriyatp.product.Product;
+import com.viktoriyatp.robot.Robot;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "orders")
 public class Order {
+  @Id
+  @Column(name = "id")
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
-  private int clientId;
+  @JoinColumn(name = "client_id")
+  @OneToOne(fetch = FetchType.LAZY)
+  private Client client;
+  @Column(name = "origin")
   private String origin;
+  @Column(name = "destination")
   private String destination;
-  private int productId;
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "product_id")
+  private Product product;
+  @Column(name = "date_of_order")
   private LocalDateTime dateOfOrder;
-  private int robotId;
+  @JoinColumn(name = "robot_id")
+  @ManyToOne(fetch = FetchType.LAZY)
+  private Robot robot;
+  @Column(name = "status")
   private String status;
-  private int orderDetailsId;
+  @JoinColumn(name = "order_details_id")
+  @OneToOne(fetch = FetchType.LAZY)
+  private OrderDetails orderDetails;
 
   public Order() {
   }
 
   public Order(
-    int id, int clientId, String origin, String destination, int productId, LocalDateTime dateOfOrder, int robotId,
-    String status, int orderDetailsId) {
+    int id, Client client, String origin, String destination, Product product, LocalDateTime dateOfOrder, Robot robot,
+    String status, OrderDetails orderDetails) {
     this.id = id;
-    this.clientId = clientId;
+    this.client = client;
     this.origin = origin;
     this.destination = destination;
-    this.productId = productId;
+    this.product = product;
     this.dateOfOrder = dateOfOrder;
-    this.robotId = robotId;
+    this.robot = robot;
     this.status = status;
-    this.orderDetailsId = orderDetailsId;
+    this.orderDetails = orderDetails;
   }
 
   public int getId() {
@@ -38,13 +71,6 @@ public class Order {
     this.id = id;
   }
 
-  public int getClientId() {
-    return clientId;
-  }
-
-  public void setClientId(int clientId) {
-    this.clientId = clientId;
-  }
 
   public String getOrigin() {
     return origin;
@@ -62,12 +88,12 @@ public class Order {
     this.destination = destination;
   }
 
-  public int getProductId() {
-    return productId;
+  public Product getProduct() {
+    return product;
   }
 
-  public void setProductId(int productId) {
-    this.productId = productId;
+  public void setProduct(Product product) {
+    this.product = product;
   }
 
   public LocalDateTime getDateOfOrder() {
@@ -78,13 +104,6 @@ public class Order {
     this.dateOfOrder = dateOfOrder;
   }
 
-  public int getRobotId() {
-    return robotId;
-  }
-
-  public void setRobotId(int robotId) {
-    this.robotId = robotId;
-  }
 
   public String getStatus() {
     return status;
@@ -94,11 +113,27 @@ public class Order {
     this.status = status;
   }
 
-  public int getOrderDetailsId() {
-    return orderDetailsId;
+  public Client getClient() {
+    return client;
   }
 
-  public void setOrderDetailsId(int orderDetailsId) {
-    this.orderDetailsId = orderDetailsId;
+  public void setClient(Client client) {
+    this.client = client;
+  }
+
+  public Robot getRobot() {
+    return robot;
+  }
+
+  public void setRobot(Robot robot) {
+    this.robot = robot;
+  }
+
+  public OrderDetails getOrderDetails() {
+    return orderDetails;
+  }
+
+  public void setOrderDetails(OrderDetails orderDetails) {
+    this.orderDetails = orderDetails;
   }
 }

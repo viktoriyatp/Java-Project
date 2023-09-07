@@ -1,9 +1,24 @@
 package com.viktoriyatp.robot;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "robots")
 public class Robot {
+  @Id
+  @Column(name = "id")
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
+  @Column(name = "model")
   private String model;
+  @Column(name = "capacity_of_trailer")
   private double capacityOfTrailer;
+  @Column(name = "max_speed")
   private double maxSpeed;
 
   public Robot() {

@@ -1,11 +1,25 @@
 package com.viktoriyatp.order_details;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import java.math.BigDecimal;
 
+@Entity
+@Table(name = "order_details")
 public class OrderDetails {
+  @Id
+  @Column(name = "id")
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
+  @Column(name = "duration")
   private double duration;
+  @Column(name = "distance")
   private double distance;
+  @Column(name = "price")
   private BigDecimal price;
 
   public OrderDetails() {
