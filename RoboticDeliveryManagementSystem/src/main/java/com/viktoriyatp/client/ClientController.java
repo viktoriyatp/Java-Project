@@ -12,7 +12,6 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@Validated
 public class ClientController {
   public final ClientServiceImpl clientService;
 
