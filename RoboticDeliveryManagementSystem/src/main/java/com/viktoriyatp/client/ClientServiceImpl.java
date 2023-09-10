@@ -60,7 +60,7 @@ public class ClientServiceImpl implements ClientService{
     if(!doesExist) {
       throw new ClientNotFound(String.format(CLIENT_NOT_FOUND,id));
     }
-    
+
     clientRepository.deleteById(id);
   }
 }
