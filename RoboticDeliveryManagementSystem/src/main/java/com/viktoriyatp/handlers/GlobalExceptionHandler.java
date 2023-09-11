@@ -1,6 +1,7 @@
 package com.viktoriyatp.handlers;
 
 import com.viktoriyatp.exceptions.ClientNotFound;
+import com.viktoriyatp.exceptions.ProductNotFound;
 import jakarta.validation.ConstraintViolationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +21,7 @@ import java.util.stream.Collectors;
 public class GlobalExceptionHandler {
   private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
-  @ExceptionHandler(value = {ClientNotFound.class})
+  @ExceptionHandler(value = {ClientNotFound.class, ProductNotFound.class})
   public ResponseEntity<String> handleDatabaseException(RuntimeException exception) {
     log.error("Caught exception: {} ", exception.getMessage());
     return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
